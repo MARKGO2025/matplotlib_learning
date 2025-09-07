@@ -42,6 +42,8 @@ y3 = 0.5 * np.sin(x) + 0.5  # 缩放和平移后的正弦波
 # ==================== 创建图形和坐标轴 ====================
 # 使用subplots()创建图形和坐标轴对象
 fig, ax = plt.subplots()
+# 开启交互模式
+plt.ion()
 
 # ==================== 绘制折线图 ====================
 # 绘制第一条线：正弦波，使用圆形标记，每10个点标记一次，蓝色
@@ -49,14 +51,15 @@ fig, ax = plt.subplots()
 # ax.scatter(x, y1, label='Sine Wave', marker='o', color='#1f77b4', s=10)
 # 绘制第二条线：余弦波，使用方形标记，每10个点标记一次，橙色
 # ax.plot(x, y2, label='Cosine Wave', marker='s', markevery=10, color='#ff7f0e')
-ax.scatter(x, y2, label='Cosine Wave', marker='s', color='#ff7f0e', s=10)
+# ax.scatter(x, y2, label='Cosine Wave', marker='s', color='#ff7f0e', s=10)
 # 绘制第三条线：平移正弦波，使用三角形标记，每10个点标记一次，绿色
 # ax.plot(x, y3, label='Shifted Sine', marker='^', markevery=10, color='#2ca02c')
-ax.scatter(x, y3, label='Shifted Sine', marker='^', color='#2ca02c', s=10)
+# ax.scatter(x, y3, label='Shifted Sine', marker='^', color='#2ca02c', s=10)
 
-ax.scatter(x, y1, label='Sine Wave', marker='o',
-           s=10, c=y1, cmap=plt.get_cmap('magma'))
-print(plt.colormaps())
+ax.scatter(x, y1, marker='o',
+           s=10,  color='#2ca02c')
+
+# print(plt.colormaps())
 
 
 # ==================== 设置坐标轴标签和标题 ====================
@@ -65,7 +68,7 @@ ax.set_ylabel('Amplitude', fontweight='bold')  # y轴标签，加粗
 ax.set_title('Waveform Comparison Analysis', fontweight='bold')  # 标题，加粗
 # ==================== 设置图例 ====================
 # 添加图例，位置在右上角，显示边框，边框颜色为黑色
-ax.legend(loc='upper right', frameon=True, edgecolor='black')
+# ax.legend(loc='upper right', frameon=True, edgecolor='black')
 
 # ==================== 设置网格 ====================
 ax.grid(True, alpha=0.5)  # 显示网格，透明度50%
@@ -80,11 +83,21 @@ ax.tick_params(axis='both', which='major', width=0.8)
 
 # ==================== 保存图像 ====================
 # 保存为PDF格式（矢量图，论文推荐格式）
-plt.savefig('academic_line_plot.pdf')
+# plt.savefig('academic_line_plot.pdf')
 # 同时保存为PNG格式（位图，便于预览）
-plt.savefig('academic_line_plot.png', dpi=300)
+# plt.savefig('academic_line_plot.png', dpi=300)
 
 # ==================== 显示图形 ====================
 plt.tight_layout()  # 自动调整布局，避免元素重叠
-plt.show()  # 显示图形
+# plt.draw()
+plt.show(block=False)
+# plt.show()  # 显示图形
+# plt.pause(1)  # 让图形有时间渲染
+
 # print("论文风格折线图生成完成！已保存为PDF和PNG格式。")
+ax.scatter(x, y2, marker='o', s=10, color='#ff7f0e')
+plt.draw()
+# plt.pause(1)  # 让图形有时间渲染
+# 最后关闭交互模式，保持窗口显示
+plt.ioff()
+plt.show()
