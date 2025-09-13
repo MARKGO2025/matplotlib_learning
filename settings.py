@@ -48,12 +48,12 @@ def set_axes_style(ax):
     ax.grid(True, alpha=0.5)  # 显示网格，透明度50%
 
     # ==================== 设置坐标轴范围 ====================
-    ax.set_xlim(0, 10)  # x轴范围：0到10
-    ax.set_ylim(-1.2, 1.2)  # y轴范围：-1.2到1.2
+    # ax.set_xlim(0, 10)  # x轴范围：0到10
+    # ax.set_ylim(-1.2, 1.2)  # y轴范围：-1.2到1.2
     ax.set_aspect('equal')
     # 隐藏坐标轴
-    ax.get_xaxis().set_visible(False)
-    ax.get_yaxis().set_visible(False)
+    # ax.get_xaxis().set_visible(False)
+    # ax.get_yaxis().set_visible(False)
 
     # ==================== 设置刻度 ====================
     # 设置主刻度的线宽

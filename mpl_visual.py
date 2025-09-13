@@ -36,7 +36,7 @@ while len(rw.x_values) < rw.num_points:
     # point_numbers = range(len(rw.x_values))
     plt.draw()  # 显示图形
     plt.pause(0.0001)  # 暂停0.5秒
-    set_axes_style(ax)
+    # set_axes_style(ax)
     set_layout_style()
 
 plt.ioff()
